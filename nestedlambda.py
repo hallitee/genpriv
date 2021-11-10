@@ -1,3 +1,4 @@
+from bitcoin import  *
 a = ['1','2','3','4','5','6','7','8','9','a','b','c','d','e','f']
 b = ['1','2','3','4','5','6','7','8','9','a','b','c','d','e','f']
 c = ['1','2','3','4','5','6','7','8','9','a','b','c','d','e','f']
@@ -78,7 +79,7 @@ def lamlist(l1, l2, l3, l4):
 #    return [lambda i=i, j=j, k=k: (i, j, k) for i in l1 for j in l2 for k in l3] 
 
 
-funlist = [lamlist(a,b,c,d), lamlist(e,f,g,h), lamlist(i,j,k,l), lamlist(m,n,o,p)]
+funlist = [lamlist(a,b,c,d), lamlist(e,f,g,h), lamlist(i,j,k,l), lamlist(m,n,o,p), lamlist(q,r,s,t), lamlist(u,v,w,x), lamlist(y,z,a1,b1), lamlist(c1,d1,e1,f1),lamlist(g1,h1,i1,j1), lamlist(k1, l1,m1,n1),lamlist(o1,p1,q1,r1), lamlist(s1,t1,u1,v1), lamlist(w1,x1,y1,z1), lamlist(a2,b2,c2,d2), lamlist(e2,f2,g2,h2), lamlist(i2,j2,k2,l2)]
 
 for f1 in funlist[0]:
     g1, g2, g3, g4 = f1()
@@ -88,4 +89,37 @@ for f1 in funlist[0]:
             i1,i2,i3,i4 = f3()
             for f4 in funlist[3]:
                 j1,j2,j3,j4 = f4()
-                print(g1,g2,g3,g4,h1,h2,h3,h4,i1,i2,i3,i4,j1,j2,j3,j4)
+                for f5 in funlist[4]:
+                    k1, k2, k3, k4 = f5()
+                    for f6 in funlist[5]:
+                        l1,l2,l3,l4 = f6()
+                        for f7 in funlist[6]:
+                            m1, m2,m3,m4 = f7()
+                            for f8 in funlist[7]:
+                                n1,n2,n3,n4 = f8()
+                                for f9 in funlist[8]:
+                                    o1,o2,o3,o4 = f9()
+                                    for f10 in funlist[9]:
+                                        p1,p2,p3,p4 = f10()
+                                        for f11 in funlist[10]:
+                                            q1,q2,q3,q4 = f11()
+                                            for f12 in funlist[11]:
+                                                r1,r2,r3,r4 = f12()
+                                                for f13 in funlist[12]:
+                                                    s1,s2,s3,s4 = f13()
+                                                    for f14 in funlist[13]:
+                                                        t1,t2,t3,t4 = f14()
+                                                        for f15 in funlist[14]:
+                                                            u1,u2,u3,u4 = f15()
+                                                            for f16 in funlist[15]:
+                                                                v1,v2,v3,v4 = f16()
+                                                                strg = g1+g2+g3+g4+h1+h2+h3+h4+i1+i2+i3+i4+j1+j2+j3+j4+k1+k2+k3+k4+l1+l2+l3+l4+m1+m2+m3+m4+n1+n2+n3+n4+o1+o2+o3+o4+p1+p2+p3+p4+q1+q2+q3+q4+r1+r2+r3+r4+s1+s2+s3+s4+t1+t2+t3+t4+u1+u2+u3+u4+v1+v2+v3+v4
+                                                                pub  = privtopub(strg)
+                                                                addr = pubtoaddr(pub)
+                                                                h = history(addr)
+                                                                if count(h)>0:
+                                                                    file = open('nested-founds.txt', 'a')
+                                                                    cons = str(strg)+","+str(addr)+","+pub+","+str(count(h))+"\n"
+                                                                    file.write(cons)
+                                                                    file.close()
+                                                                print(strg, ' ------- ', count(strg), '-- count ---', count(h))
